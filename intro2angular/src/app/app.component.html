@@ -1,1 +1,13 @@
-Hello World! A custom component says  <app-hello></app-hello>
+<!-- Binding myVariable to value attribute aka Source to Target -->
+<div>
+    <input type="text" [value]="myVariable" />
+</div>
+
+<div>
+    <input type="text" value="Watch me as i go" [disabled]="myDisabledValue" />
+</div>
+
+<!-- Binding the click attribute to my function aka Target to Source -->
+<div>
+    <button (click)="callMyFunction()">Hey there!</button>
+</div>
