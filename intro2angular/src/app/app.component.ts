@@ -1,28 +1,32 @@
 import { Component } from '@angular/core';
 
-const log = (target, name, descriptor) => {
-  // store the original function in a variable
-  const original = descriptor.value;
-  
-  // do some manipulations with descriptor.value, which is the function that will be executed
-  
-  // below, aSimpleMethod is overwritten
-  // descriptor.value = function() {
-  //   console.log("This function was changed")
-  // }
+// const log = (className) => {
+//   return (...args) => {
+//     console.log("Arguments passed to this class's constructor are ", args);
+//     return new className(args);
+//   }
+// }
 
-  descriptor.value = (...args: any) => {
-    // fac ca original sa apartina obiectului global, pt ca altfel ea tine de clasa AppComponent
-    const result = original.apply(this, args);
-    return "Result from decorator function: " + result; 
-  }
-
-  //this call displays "14"
-  console.log(original(2, 7));
-  
-  // return the descriptor
-  return descriptor;
+// log as a class decorator
+const log = className => {
+  return class extends className {
+    constructor(arg1: Number, arg2: Number) {
+      super(arg1, arg2);
+      let incr1 = Number (arg1) + 1;
+      let incr2 = Number (arg2) + 1;
+      console.log("Incremented in decorator: " + incr1 + ", " + incr2);
+    }
+  };
 }
+
+@log
+class MyExampleClass {
+  constructor(arg1: Number, arg2: Number) {
+    console.log("Constructor called with arguments " + arg1 + ", " + arg2);
+  };
+};
+
+const myClass = new MyExampleClass(5, 10);
 
 @Component({
   selector: 'app-root',
@@ -36,9 +40,7 @@ export class AppComponent {
     console.log("In constructor: ", this.aSimpleMethod(5, 2));
   }
 
-  // in this case, log is a member decorator
-  @log
   aSimpleMethod(a, b) {
     return a*b;
   }
-}
+};
