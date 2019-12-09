@@ -6,11 +6,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  textVariable = "app";
-  otherTextVariable = "otherApp";
-
-  updateTextVariable(e) {
-    this.textVariable = e.target.value;
-    //console.log(e.target.value);
-  }
+  data = [
+    {
+      name: "Dave",
+      online: true
+    },
+    {
+      name: "Andy",
+      online: false
+    },
+    {
+      name: "Chris",
+      online: true
+    },
+    {
+      name: "Dave",
+      online: true
+    },
+    {
+      name: "Andy",
+      online: false
+    },
+    {
+      name: "Chris",
+      online: true
+    },
+    {
+      name: "Dave",
+      online: true
+    },
+    {
+      name: "Andy",
+      online: false
+    },
+    {
+      name: "Chris",
+      online: true
+    },
+  ];
 };
