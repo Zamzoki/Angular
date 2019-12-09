@@ -1,20 +1,3 @@
-<div>
-    <table>
-        <tr>
-            <td>Nr. crt.</td>
-            <td>Name</td>
-            <td>Is online?</td>
-        </tr>
-        <tr *ngFor='let dataEntry of data; let myIndex = index; 
-                    let evenEntry = even; let oddEntry = odd;
-                    let firstEntry = first; let lastEntry = last;'
-            [ngClass]='{odd: oddEntry, even: evenEntry, first: firstEntry, last: lastEntry}'>
-            <td>{{myIndex + 1}}</td>
-            <td>{{dataEntry.name}}</td>
-            <td>{{dataEntry.online}}</td>
-        </tr>
-    </table>
-</div>
-<div>
-    <app-update-data></app-update-data>
-</div>
+<!-- displays components indicated in RouterModule from app.module.ts -->
+<h3>This will always display</h3>
+<router-outlet></router-outlet>

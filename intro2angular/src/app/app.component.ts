@@ -7,16 +7,12 @@ import { RecordsService } from './records.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data = [];
 
-  constructor(private myRecordsService : RecordsService) {
+  constructor() {
   
   }
 
   ngOnInit() {
-    this.myRecordsService.getData().subscribe(response => {
-      this.data = response.data;
-      console.log(response.data);
-    });
+    
   }
 }

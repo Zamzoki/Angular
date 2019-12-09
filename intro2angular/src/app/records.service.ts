@@ -15,9 +15,6 @@ export class RecordsService {
     
   }
 
-  // To config proxy, edit "start" in package.json to
-  // "start": "ng serve --proxy-config proxyconfig"
-  // and change url below to /api/data.php
   getData() {
     return  this.http.get<myData>('http://localhost:1234/api/data.php');
   }
