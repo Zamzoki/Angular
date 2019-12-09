@@ -9,11 +9,10 @@ import { RecordsService } from './records.service';
 export class AppComponent {
   data = [];
 
-  constructor(private myFirstService : RecordsService) {
-
-  }
-
-  ngOnInit() {
-    this.data = this.myFirstService.getData();
+  constructor(private myRecordsService : RecordsService) {
+    myRecordsService.getData().subscribe(response => {
+      console.log(response.data);
+      this.data = response.data;
+    });
   }
 };

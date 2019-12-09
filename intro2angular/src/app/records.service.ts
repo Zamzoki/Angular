@@ -1,60 +1,29 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+// interface by which I specify the type of respone I expect to get at http.get
+interface myData {
+  data: Array<object>
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecordsService {
-
+  
   data = [];
 
-  constructor() { 
-    this.data = [
-      {
-        name: "Dave",
-        online: true
-      },
-      {
-        name: "Andy",
-        online: false
-      },
-      {
-        name: "Chris",
-        online: true
-      },
-      {
-        name: "Dave",
-        online: true
-      },
-      {
-        name: "Andy",
-        online: false
-      },
-      {
-        name: "Chris",
-        online: true
-      },
-      {
-        name: "Dave",
-        online: true
-      },
-      {
-        name: "Andy",
-        online: false
-      },
-      {
-        name: "Chris",
-        online: true
-      },
-    ];
+  constructor(private http: HttpClient) { 
+    
   }
 
   getData() {
-    return this.data;
+    return  this.http.get<myData>('http://localhost:1234/data.php');
   }
 
   updateData() {
     this.data.forEach(dataEntry => {
-      dataEntry.name = dataEntry.name + " SkaP";
+      dataEntry.name = dataEntry.name + ' SkaP';
     });
   }
 }

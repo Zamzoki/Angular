@@ -5,13 +5,10 @@
             <td>Name</td>
             <td>Is online?</td>
         </tr>
-        <!-- 'index' is a keyword -->
-        <!-- evenEntry is true when i'm at an even data entry -->
-        <!-- [ngClass] - daca oddEntry e true, elementul are clasa odd; analog pentru evenEntry -->
-        <tr *ngFor="let dataEntry of data; let myIndex = index; 
+        <tr *ngFor='let dataEntry of data; let myIndex = index; 
                     let evenEntry = even; let oddEntry = odd;
-                    let firstEntry = first; let lastEntry = last;"
-            [ngClass]="{odd: oddEntry, even: evenEntry, first: firstEntry, last: lastEntry}">
+                    let firstEntry = first; let lastEntry = last;''
+            [ngClass]='{odd: oddEntry, even: evenEntry, first: firstEntry, last: lastEntry}''>
             <td>{{myIndex + 1}}</td>
             <td>{{dataEntry.name}}</td>
             <td>{{dataEntry.online}}</td>
