@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { DataComponent } from './data/data.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { AdminComponent } from './admin/admin.component';
       },
       {
         path: 'admin',
-        component: AdminComponent
+        component: AdminComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: '',
@@ -47,7 +48,7 @@ import { AdminComponent } from './admin/admin.component';
     ])
     
   ],
-  providers: [RecordsService],
+  providers: [RecordsService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
