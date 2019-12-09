@@ -10,9 +10,13 @@ export class AppComponent {
   data = [];
 
   constructor(private myRecordsService : RecordsService) {
-    myRecordsService.getData().subscribe(response => {
-      console.log(response.data);
+  
+  }
+
+  ngOnInit() {
+    this.myRecordsService.getData().subscribe(response => {
       this.data = response.data;
+      console.log(response.data);
     });
   }
-};
+}

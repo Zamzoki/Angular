@@ -1,6 +1,7 @@
 <?php
   header('Access-Control-Allow-Origin: *');
   header('Content-Type: application/json');
+  set_time_limit(30);
 ?>
 {
     "data": [
