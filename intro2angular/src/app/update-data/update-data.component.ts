@@ -7,6 +7,7 @@ import { RecordsService } from '../records.service';
   styleUrls: ['./update-data.component.css']
 })
 export class UpdateDataComponent implements OnInit {
+  isDisabled = false;
 
   constructor(private myRecordsService : RecordsService) { }
 
@@ -17,4 +18,7 @@ export class UpdateDataComponent implements OnInit {
     this.myRecordsService.updateData();
   }
 
+  disableButton() {
+    this.isDisabled = true;
+  }
 }
