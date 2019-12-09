@@ -10,6 +10,7 @@ import { HelloComponent } from './hello/hello.component';
 import { UpdateDataComponent } from './update-data/update-data.component';
 
 import { RecordsService } from './records.service';
+import { UserService } from './user.service';
 import { HomeComponent } from './home/home.component';
 import { DataComponent } from './data/data.component';
 import { LoginComponent } from './login/login.component';
@@ -48,7 +49,7 @@ import { AuthGuard } from './auth.guard';
     ])
     
   ],
-  providers: [RecordsService, AuthGuard],
+  providers: [RecordsService, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
