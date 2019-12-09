@@ -1,13 +1,10 @@
-<!-- Binding myVariable to value attribute aka Source to Target -->
 <div>
-    <input type="text" [value]="myVariable" />
-</div>
+    <!-- Two way data binding -->
+    <p> <input type="text" [value]="textVariable" (input)="updateTextVariable($event)"/> </p>
+    <p> My text variable: {{ textVariable }} </p>
+    <!-- Does the same thing, but simpler -->
+    <p> <input type="text" [(ngModel)]="otherTextVariable"/> </p>
+    <p> My other text variable: {{ otherTextVariable }} </p>
 
-<div>
-    <input type="text" value="Watch me as i go" [disabled]="myDisabledValue" />
-</div>
-
-<!-- Binding the click attribute to my function aka Target to Source -->
-<div>
-    <button (click)="callMyFunction()">Hey there!</button>
+    <!-- 'ngModel', 'value' and 'input' are called 'directives' and are built in Angular -->
 </div>
