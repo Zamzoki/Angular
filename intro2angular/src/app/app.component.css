@@ -17,3 +17,7 @@ tr.last {
     background: greenyellow;
     color: black;
 }
+
+td {
+    padding: 5px;
+}

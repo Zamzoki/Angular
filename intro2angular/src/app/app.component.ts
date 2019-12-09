@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RecordsService } from './records.service';
 
 @Component({
   selector: 'app-root',
@@ -6,42 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  data = [
-    {
-      name: "Dave",
-      online: true
-    },
-    {
-      name: "Andy",
-      online: false
-    },
-    {
-      name: "Chris",
-      online: true
-    },
-    {
-      name: "Dave",
-      online: true
-    },
-    {
-      name: "Andy",
-      online: false
-    },
-    {
-      name: "Chris",
-      online: true
-    },
-    {
-      name: "Dave",
-      online: true
-    },
-    {
-      name: "Andy",
-      online: false
-    },
-    {
-      name: "Chris",
-      online: true
-    },
-  ];
+  data = [];
+
+  constructor(private myFirstService : RecordsService) {
+
+  }
+
+  ngOnInit() {
+    this.data = this.myFirstService.getData();
+  }
 };
