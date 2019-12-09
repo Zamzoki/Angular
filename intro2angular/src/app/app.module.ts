@@ -12,6 +12,8 @@ import { UpdateDataComponent } from './update-data/update-data.component';
 import { RecordsService } from './records.service';
 import { HomeComponent } from './home/home.component';
 import { DataComponent } from './data/data.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { DataComponent } from './data/data.component';
     HelloComponent,
     UpdateDataComponent,
     HomeComponent,
-    DataComponent
+    DataComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +33,12 @@ import { DataComponent } from './data/data.component';
     HttpClientModule,
     RouterModule.forRoot([
       {
-        path: 'data', // localhost:4200/data
-        component: DataComponent
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
       },
       {
         path: '',

@@ -16,7 +16,7 @@ export class RecordsService {
   }
 
   getData() {
-    return  this.http.get<myData>('http://localhost:1234/api/data.php');
+    return  this.http.get<myData>('/api/data.php');
   }
 
   updateData() {
