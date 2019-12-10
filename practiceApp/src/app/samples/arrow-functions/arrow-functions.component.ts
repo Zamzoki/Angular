@@ -9,6 +9,7 @@ function Car() {
 
   this.timeout = function() {
     setTimeout(function() {
+      // daca nu aveam self, cu this m-as fi referit la functia curenta
       console.log(self.seats++);
     }, 1000);
   }
@@ -35,8 +36,6 @@ class CarWithArrow {
 })
 export class ArrowFunctionsComponent implements OnInit {
   
-  
-
   constructor() {
 
   }
