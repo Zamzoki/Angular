@@ -12,11 +12,19 @@ export class RecordsService {
   data = [];
 
   constructor(private http: HttpClient) { 
-    
+
   }
 
   getData() {
-    return  this.http.get<myData>('/api/data.php');
+    return this.data;
+  }
+
+  setData(response: myData) {
+    this.data = response.data;
+  }
+
+  fetchData() {
+    return this.http.get<myData>('/api/data.php');
   }
 
   updateData() {

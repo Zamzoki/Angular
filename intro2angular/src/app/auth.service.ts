@@ -10,23 +10,22 @@ interface Response {
   providedIn: 'root'
 })
 export class AuthService {
-  
-  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false');
+  // default is false
+  // if it's true, we're sure we're logged int
+  // if it's false, we might be logged in but refreshed the page; or we may not be logged in at all
+  private loggedInStatus = false;
 
   constructor(private http : HttpClient) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value;
-    localStorage.setItem('loggedIn', 'true');
   }
 
-  // it's a getter; I can access it as a property
   get isLoggedIn() {
-    return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString());
+    return this.loggedInStatus;
   }
 
   getUserDetails(username, password) {
-    // post these details to API server and return user info if correct
     return this.http.post<Response>('/api/auth.php', {
       username,
       password

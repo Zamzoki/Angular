@@ -15,8 +15,9 @@ export class DataComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.myRecordsService.getData().subscribe(response => {
-      this.data = response.data;
+    this.myRecordsService.fetchData().subscribe(response => {
+      this.myRecordsService.setData(response);
+      this.data = this.myRecordsService.getData();
       console.log(response.data);
     });
   }

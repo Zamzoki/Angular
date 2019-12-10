@@ -34,6 +34,10 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     RouterModule.forRoot([
       {
+        path: 'data',
+        component: DataComponent
+      },
+      {
         path: 'login',
         component: LoginComponent
       },
