@@ -10,9 +10,6 @@ interface Response {
   providedIn: 'root'
 })
 export class AuthService {
-  // default is false
-  // if it's true, we're sure we're logged int
-  // if it's false, we might be logged in but refreshed the page; or we may not be logged in at all
   private loggedInStatus = false;
 
   constructor(private http : HttpClient) { }

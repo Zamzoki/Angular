@@ -7,3 +7,5 @@ if(isset($_SESSION['user'])) {
 } else {
     echo '{"status": false}';
 }
+
+?>
