@@ -11,17 +11,18 @@ interface Response {
 })
 export class AuthService {
   
-  private loggedInStatus = false;
+  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false');
 
   constructor(private http : HttpClient) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value;
+    localStorage.setItem('loggedIn', 'true');
   }
 
   // it's a getter; I can access it as a property
   get isLoggedIn() {
-    return this.loggedInStatus;
+    return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString());
   }
 
   getUserDetails(username, password) {
