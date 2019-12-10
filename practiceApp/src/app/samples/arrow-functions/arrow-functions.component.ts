@@ -2,14 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 const myLogger = message => console.log(message);
 
-// working with 'this' using ES5
 function Car() {
   var self = this;
   this.seats = 4;
 
   this.timeout = function() {
     setTimeout(function() {
-      // daca nu aveam self, cu this m-as fi referit la functia curenta
       console.log(self.seats++);
     }, 1000);
   }
