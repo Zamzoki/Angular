@@ -7,13 +7,26 @@ class BaseLog {
     this.logName = name;
   }
 
-  log : (message: string) => void = message => {
+  log(message: string) : void {
     console.log(`${this.logName}: ${message}`);
+  }
+
+  logWords(callback: (time: number, word: string) => void, ...words: string[]) {
+    for(let i = 0; i < words.length; i++) {
+      callback(5, words[i]);
+    }
+  }
+
+  timeout(time: number, word: string) : void {
+    setTimeout(() => {
+      console.log(word);
+    }, time);
   }
 }
 
 class Logger extends BaseLog {
   constructor(name: string) {
+    // child class constructor MUST call base class constructor
     super(name);
   }
 
@@ -34,6 +47,7 @@ export class ClassesComponent implements OnInit {
   ngOnInit() {
     let baseLog = new BaseLog('BaseLog');
     baseLog.log('Logging from base class');
+    baseLog.logWords(baseLog.timeout, 'dog', 'cat', 'mouse');
 
     let logger = new Logger('ChildLog');
     logger.writeLine('Logging from child class');

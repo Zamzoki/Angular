@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 interface loggerType {
-  (message: string): void
+  (message: string): void;
 }
 
 const myLogger: loggerType = message => console.log(message);
@@ -18,15 +18,31 @@ function Car() {
 }
 
 class CarWithArrow {
-  seats: number = 0;
+  private _seats: number = 0;
 
   constructor() {
-    this.seats = 6;
+    this._seats = 6;
   }
 
+  get seats() {
+    return this._seats;
+  }
+
+  set seats(value: number) {
+    this._seats = value;
+  }
+
+  // seen as a property of the class; still needs to be called with '()' to execute
   timeout : () => void = () => {
     setTimeout(() => {
-      console.log(this.seats++);
+      console.log(this._seats++);
+    }, 1000);
+  }
+
+  // seen as a method/ function
+  timeout2() : void {
+    setTimeout(() => {
+      console.log(this._seats++);
     }, 1000);
   }
 }
@@ -49,6 +65,10 @@ export class ArrowFunctionsComponent implements OnInit {
     c.timeout();
 
     var cArrow = new CarWithArrow();
+    console.log(`Expected 6 from constructor: ${cArrow.seats}`);
+    cArrow.seats = 3;
+    console.log(`Expected 3 from setter: ${cArrow.seats}`);
     cArrow.timeout();
+    cArrow.timeout2();
   }
 }

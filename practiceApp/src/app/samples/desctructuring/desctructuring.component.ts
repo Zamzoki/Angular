@@ -23,10 +23,10 @@ console.log(`Colors: ${newRed}, ${newGreen}, ${newBlue}`);
 var [newRed2, , newBlue2] = ['red', 'green', 'blue'];
 
 interface petType {
-  name: string, 
-  type: string, 
+  name: string
+  type: string
   foods: {
-    food1: string, 
+    food1: string
     food2: string
   }
 }
