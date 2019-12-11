@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-const myLogger = message => console.log(message);
+const myLogger: (message: string) => void = message => console.log(message);
 
 function Car() {
   var self = this;
-  this.seats = 4;
+  this.seats = 4 as number;
 
   this.timeout = function() {
     setTimeout(function() {
@@ -14,13 +14,13 @@ function Car() {
 }
 
 class CarWithArrow {
-  seats = 0;
+  seats: number = 0;
 
   constructor() {
     this.seats = 6;
   }
 
-  timeout() {
+  timeout : () => void = () => {
     setTimeout(() => {
       console.log(this.seats++);
     }, 1000);

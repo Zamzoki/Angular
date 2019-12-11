@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
 class BaseLog {
-  logName = '';
+  logName: string;
 
-  constructor(name) {
+  constructor(name: string) {
     this.logName = name;
   }
 
-  log(message) {
+  log : (message: string) => void = message => {
     console.log(`${this.logName}: ${message}`);
   }
 }
 
 class Logger extends BaseLog {
-  constructor(name) {
+  constructor(name: string) {
     super(name);
   }
 
-  writeLine(message) {
+  writeLine: (message: string) => void = message => {
     super.log(`\n${message}`);
   }
 }
