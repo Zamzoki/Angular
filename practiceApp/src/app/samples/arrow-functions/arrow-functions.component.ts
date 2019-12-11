@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-const myLogger: (message: string) => void = message => console.log(message);
+interface loggerType {
+  (message: string): void
+}
+
+const myLogger: loggerType = message => console.log(message);
 
 function Car() {
   var self = this;
