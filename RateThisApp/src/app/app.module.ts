@@ -9,6 +9,8 @@ import { appRoutes } from './appRoutes';
 import { PostOverview } from './post-overview/post-overview.component';
 import { HeaderComponent } from './header/header.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { ErrorComponent } from './error/error.component';
+import { RouteActivatorService } from './services/routeActivator.service';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,14 @@ import { NewPostComponent } from './new-post/new-post.component';
     PostOverview, 
     HomeComponent,
     HeaderComponent,
-    NewPostComponent
+    NewPostComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ PostServices ],
+  providers: [ PostServices, RouteActivatorService ],
   bootstrap: [ HomeComponent ]
 })
 export class AppModule { }
