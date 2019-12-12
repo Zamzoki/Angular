@@ -1,0 +1,8 @@
+.dashboard-container {
+    margin: 20px;
+}
+
+.dashboard-post-list {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,20 @@
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.post-container {
+    width: 500px;
+    background-color: lightskyblue;
+    color: black;
+    padding: 20px 30px;
+}
+
+.post-container:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.funny-post {
+    color: red;
+}

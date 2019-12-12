@@ -1,0 +1,16 @@
+.header-container {
+    background-color: lightslategray;
+}
+
+.header-button {
+    border: none;
+    background-color: lightskyblue;
+    color: black;
+
+    margin: 0px 20px;
+}
+
+.header-button:hover {
+    background-color: darkblue;
+    color: white;
+}
