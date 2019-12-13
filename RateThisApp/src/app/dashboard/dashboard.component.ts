@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostServices } from '../services/post.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'dashboard-component',
@@ -7,13 +7,13 @@ import { PostServices } from '../services/post.service';
     styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
-    posts: any[];
+    posts: any;
 
-    constructor(private postService: PostServices) {
+    constructor(private route: ActivatedRoute) {
 
     }
 
     ngOnInit() {
-        this.posts = this.postService.getPosts();
+        this.posts = this.route.snapshot.data['posts'];
     }
 }

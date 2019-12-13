@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PostServices } from '../services/post.service';
 
 @Component({
     selector: 'post-overview',
     templateUrl: './post-overview.component.html',
     styleUrls: ['./post-overview.component.css']
 })
-export class PostOverview implements OnInit{
+export class PostOverviewComponent implements OnInit{
 
     post: any;
 
-    constructor(private route: ActivatedRoute, private postServices: PostServices) {
+    constructor(private route: ActivatedRoute) {
 
     }
 
     ngOnInit() {
-        this.post = this.postServices.getPost(+this.route.snapshot.params['id']);
+        this.post = this.route.snapshot.data['post'];
     }
 }

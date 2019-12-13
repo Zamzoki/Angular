@@ -6,17 +6,20 @@ import { HomeComponent } from './home/home.component';
 import { PostServices } from './services/post.service';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './appRoutes';
-import { PostOverview } from './post-overview/post-overview.component';
+import { PostOverviewComponent } from './post-overview/post-overview.component';
 import { HeaderComponent } from './header/header.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { ErrorComponent } from './error/error.component';
 import { RouteActivatorService } from './services/routeActivator.service';
+import { RouteDeactivatorService } from './services/routeDeactivator.service';
+import { PostListResolver } from './services/postListResolver.service';
+import { PostOverviewResolver } from './services/postOverviewResolver.service';
 
 @NgModule({
   declarations: [
     PostComponent,
     DashboardComponent,
-    PostOverview, 
+    PostOverviewComponent, 
     HomeComponent,
     HeaderComponent,
     NewPostComponent,
@@ -24,9 +27,15 @@ import { RouteActivatorService } from './services/routeActivator.service';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
-  providers: [ PostServices, RouteActivatorService ],
+  providers: [ 
+    PostServices, 
+    RouteActivatorService, 
+    RouteDeactivatorService,
+    PostListResolver,
+    PostOverviewResolver
+  ],
   bootstrap: [ HomeComponent ]
 })
 export class AppModule { }

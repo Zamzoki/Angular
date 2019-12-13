@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 let POSTS = [
     {
@@ -35,11 +36,25 @@ export class PostServices {
     }
     
     getPosts() {
-        return POSTS;
+        let subject = new Subject();
+
+        setTimeout(() => {
+            subject.next(POSTS); 
+            subject.complete(); 
+        }, 100);
+
+        return subject;
     }
 
     getPost(id: number) {
-        return POSTS[id-1];
+        let subject = new Subject();
+
+        setTimeout(() => {
+            subject.next(POSTS.find(post => post.id = id));
+            subject.complete();
+        }, 100);
+
+        return subject;
     }
 }
 

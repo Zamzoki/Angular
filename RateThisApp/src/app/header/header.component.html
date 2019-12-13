@@ -1,4 +1,20 @@
 <div class="header-container">
-    <button class="header-button" [routerLink]="['post']">Dashboard</button>
-    <button class="header-button" [routerLink]="['post/new']">Create post</button>
+    <button 
+        class="header-button" 
+        [routerLink]="['post']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+    >Dashboard</button>
+    
+    <button
+        class="header-button" 
+        [routerLink]="['post/new']"
+        routerLinkActive="active"
+    >Create post</button>
+
+    <button
+        class="header-button"
+        [routerLink]="['user/profile']"
+        routerLinkActive="active"
+    >User profile</button>
 </div>

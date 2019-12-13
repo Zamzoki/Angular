@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, CanDeactivate } from '@angular/router';
 import { PostServices } from './post.service';
 
 @Injectable()
