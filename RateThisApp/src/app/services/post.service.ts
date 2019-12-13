@@ -50,7 +50,7 @@ export class PostServices {
         let subject = new Subject();
 
         setTimeout(() => {
-            subject.next(POSTS.find(post => post.id = id));
+            subject.next(POSTS.find(post => post.id === id));
             subject.complete();
         }, 100);
 
