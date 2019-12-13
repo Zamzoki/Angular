@@ -1,12 +1,18 @@
 import { Routes } from '@angular/router';
-import { PostListResolver } from './services/postListResolver.service';
-import { DashboardComponent } from './posts/dashboard/dashboard.component';
-import { NewPostComponent } from './posts/new-post/new-post.component';
-import { ErrorComponent } from './posts/error/error.component';
-import { RouteActivatorService } from './services/routeActivator.service';
-import { RouteDeactivatorService } from './services/routeDeactivator.service';
-import { PostOverviewComponent } from './posts/post-overview/post-overview.component';
-import { PostOverviewResolver } from './services/postOverviewResolver.service';
+
+import {
+    DashboardComponent,
+    NewPostComponent,
+    ErrorComponent,
+    PostOverviewComponent
+} from './posts/index';
+
+import {
+    PostListResolver,
+    RouteActivatorService,
+    RouteDeactivatorService,
+    PostOverviewResolver
+} from './services/index';
 
 export const appRoutes: Routes = [
     {
