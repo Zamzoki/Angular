@@ -5,17 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ArrowFunctionsComponent } from './samples/arrow-functions/arrow-functions.component';
-import { ClassesComponent } from './samples/classes/classes.component';
-import { DesctructuringComponent } from './samples/desctructuring/desctructuring.component';
-import { MapsComponent } from './samples/maps/maps.component';
-import { MultiplyPipe } from './samples/pipes/multiply.pipe';
-import { MultiplyComponent } from './samples/pipes/multiply.component';
-import { ParametersComponent } from './samples/parameters/parameters.component';
-import { ScopesAndLetComponent } from './samples/scopes-and-let/scopes-and-let.component';
-import { SetsComponent } from './samples/sets/sets.component';
-import { TemplateStringsComponent } from './samples/template-strings/template-strings.component';
-import { WeakMapWeakSetComponent } from './samples/weak-map-weak-set/weak-map-weak-set.component';
+
+import {
+  ArrowFunctionsComponent,
+  ClassesComponent,
+  DesctructuringComponent,
+  MapsComponent,
+  MultiplyPipe,
+  MultiplyComponent,
+  ParametersComponent,
+  ScopesAndLetComponent,
+  SetsComponent,
+  TemplateStringsComponent,
+  WeakMapWeakSetComponent
+} from './samples/index';
 
 
 @NgModule({

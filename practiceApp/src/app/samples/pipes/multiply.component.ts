@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-multiply',
-    templateUrl: './multiply.component.html'
+    templateUrl: './multiply.component.html',
+    styleUrls: ['./multiply.component.css']
 })
 export class MultiplyComponent {
 
-    constructor(private value: number, private factor: number) {
-        this.value = 1;
-        this.factor = 1;
+    value: number;
+    factor: number;
+
+    constructor() {
+        
     }
 }

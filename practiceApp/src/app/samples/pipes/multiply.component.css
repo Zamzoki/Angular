@@ -1,0 +1,11 @@
+.pipes-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.field-container {
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
