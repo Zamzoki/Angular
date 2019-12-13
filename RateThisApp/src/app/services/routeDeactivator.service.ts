@@ -1,6 +1,6 @@
 import { CanDeactivate, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { NewPostComponent } from '../new-post/new-post.component';
+import { NewPostComponent } from '../posts/new-post/new-post.component';
 
 interface INewPost {
     canLeave: boolean;
