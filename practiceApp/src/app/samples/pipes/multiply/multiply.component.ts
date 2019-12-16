@@ -11,6 +11,5 @@ export class MultiplyComponent {
     factor: number;
 
     constructor() {
-        
     }
 }

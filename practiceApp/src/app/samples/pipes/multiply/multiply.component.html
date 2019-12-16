@@ -1,0 +1,12 @@
+<div class="pipes-container">
+    <div class="field-container">
+        <div><label>Value: </label><input [(ngModel)]="value" type="text"></div>
+    </div>
+    <div class="field-container">
+        <div><label>Factor: </label><input [(ngModel)]="factor" type="text"></div>
+    </div>
+
+    <div class="field-container">
+        <div><label>Result: </label><input [value]="value | multiply: factor" disabled></div>
+    </div>
+</div>

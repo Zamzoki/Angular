@@ -12,13 +12,16 @@ import {
   DesctructuringComponent,
   MapsComponent,
   MultiplyPipe,
-  MultiplyComponent,
+  PipesComponent,
   ParametersComponent,
   ScopesAndLetComponent,
   SetsComponent,
   TemplateStringsComponent,
-  WeakMapWeakSetComponent
-} from './samples/index';
+  WeakMapWeakSetComponent,
+  MultiplyComponent,
+  CarsComponent,
+  FullTractionPipe
+} from './samples';
 
 
 @NgModule({
@@ -34,8 +37,11 @@ import {
     TemplateStringsComponent,
     WeakMapWeakSetComponent,
     HomeComponent,
+    PipesComponent,
     MultiplyComponent,
-    MultiplyPipe
+    MultiplyPipe,
+    CarsComponent,
+    FullTractionPipe
   ],
   imports: [
     BrowserModule,
@@ -76,11 +82,19 @@ import {
       },
       {
         path: 'samples/weakMapWeakSet',
-        component:WeakMapWeakSetComponent
+        component: WeakMapWeakSetComponent
+      },
+      {
+        path: 'samples/pipes/multiply',
+        component: MultiplyComponent
+      },
+      {
+        path: 'samples/pipes/cars',
+        component: CarsComponent
       },
       {
         path: 'samples/pipes',
-        component: MultiplyComponent
+        component: PipesComponent
       },
       {
         path: '',
@@ -89,7 +103,8 @@ import {
     ]),
   ],
   providers: [
-    MultiplyPipe
+    MultiplyPipe,
+    FullTractionPipe
   ],
   bootstrap: [AppComponent]
 })
