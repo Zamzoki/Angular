@@ -20,7 +20,8 @@ import {
   WeakMapWeakSetComponent,
   MultiplyComponent,
   CarsComponent,
-  FullTractionPipe
+  FullTractionPipe,
+  MessagesComponent
 } from './samples';
 
 
@@ -41,7 +42,8 @@ import {
     MultiplyComponent,
     MultiplyPipe,
     CarsComponent,
-    FullTractionPipe
+    FullTractionPipe,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -93,12 +95,20 @@ import {
         component: CarsComponent
       },
       {
+        path: 'samples/pipes/messages',
+        component: MessagesComponent
+      },
+      {
         path: 'samples/pipes',
         component: PipesComponent
       },
       {
         path: '',
         component: HomeComponent
+      },
+      {
+        path: '**',
+        redirectTo: ''
       }
     ]),
   ],
