@@ -19,13 +19,13 @@ import {
   RouteDeactivatorService,
   PostListResolver,
   PostOverviewResolver
-} from './services/index'
+} from './services/index';
 
 @NgModule({
   declarations: [
     PostComponent,
     DashboardComponent,
-    PostOverviewComponent, 
+    PostOverviewComponent,
     HomeComponent,
     HeaderComponent,
     NewPostComponent,
@@ -33,11 +33,11 @@ import {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
   ],
-  providers: [ 
-    PostServices, 
-    RouteActivatorService, 
+  providers: [
+    PostServices,
+    RouteActivatorService,
     RouteDeactivatorService,
     PostListResolver,
     PostOverviewResolver
