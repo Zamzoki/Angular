@@ -1,5 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-observable',
@@ -12,11 +13,11 @@ export class ObservableComponent implements OnInit {
   eventSubscription: Subscription;
   asyncSequenceObservable: Observable<any>;
 
-  constructor() {
-    this.sequenceObservable = new Observable(this.sequenceSubscribe);
-  }
+  constructor() { }
+
 
   ngOnInit() {
+    this.sequenceObservable = new Observable(this.sequenceSubscribe);
     const sequenceObserver = {
       next(num) { console.log(num); this.value = num; },
       complete() { console.log('Finished sequence'); }
@@ -35,26 +36,30 @@ export class ObservableComponent implements OnInit {
     };
     // this.eventSubscription = this.createEventObservable(nameInput, 'keydown').subscribe(eventObserver);
 
-    // const asyncSequenceObserver = {
-    //   next(num) { console.log(`Value from async sequence: ${num}`); },
-    //   complete() { console.log('Sequence completed'); }
-    // };
-    // this.asyncSequenceObservable = new Observable(this.asyncSequenceSubscribe);
+    const asyncSequenceObserver = {
+      next(num) { console.log(`Value from async sequence: ${num}`); },
+      complete() { console.log('Sequence completed'); }
+    };
+    this.asyncSequenceObservable = new Observable(this.asyncSequenceSubscribe);
+    const pipedObservable =
+      this.asyncSequenceObservable.pipe(map((value, index) => `Index: ${index}, value: ${value}`));
+    pipedObservable.subscribe(x => console.log(x));
     // this.asyncSequenceObservable.subscribe(asyncSequenceObserver);
     // setTimeout(() => { this.asyncSequenceObservable.subscribe(asyncSequenceObserver); }, 500);
-    this.asyncSequenceObservable = new Observable(this.multicastingAsyncSequenceSubscribe());
-    setTimeout(() => {
-      this.asyncSequenceObservable.subscribe({
-        next(num) { console.log(`1st subscribe: ${num}`); },
-        complete() { console.log('1st sequence completed'); }
-      });
-    }, 3000);
-    setTimeout(() => {
-      this.asyncSequenceObservable.subscribe({
-        next(num) { console.log(`2nd subscribe ${num}`); },
-        complete() { console.log('2nd sequence completed'); }
-      });
-    }, 5500);
+
+    // this.asyncSequenceObservable = new Observable(this.multicastingAsyncSequenceSubscribe());
+    // setTimeout(() => {
+    //   this.asyncSequenceObservable.subscribe({
+    //     next(num) { console.log(`1st subscribe: ${num}`); },
+    //     complete() { console.log('1st sequence completed'); }
+    //   });
+    // }, 3000);
+    // setTimeout(() => {
+    //   this.asyncSequenceObservable.subscribe({
+    //     next(num) { console.log(`2nd subscribe ${num}`); },
+    //     complete() { console.log('2nd sequence completed'); }
+    //   });
+    // }, 5500);
   }
 
   sequenceSubscribe(observer) {
@@ -97,7 +102,7 @@ export class ObservableComponent implements OnInit {
     // declaration
     function iterate(arr, index) {
       timeoutId = setTimeout(() => {
-        if (index === arr.length) {
+        if (index !== arr.length) {
           observer.next(arr[index]);
           iterate(arr, ++index);
         } else {
