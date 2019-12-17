@@ -9,3 +9,4 @@ export * from './scopes-and-let/scopes-and-let.component';
 export * from './sets/sets.component';
 export * from './template-strings/template-strings.component';
 export * from './weak-map-weak-set/weak-map-weak-set.component';
+export * from './observables/observable.component';

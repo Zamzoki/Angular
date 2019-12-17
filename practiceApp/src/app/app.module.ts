@@ -21,7 +21,8 @@ import {
   MultiplyComponent,
   CarsComponent,
   FullTractionPipe,
-  MessagesComponent
+  MessagesComponent,
+  ObservableComponent
 } from './samples';
 
 
@@ -43,7 +44,8 @@ import {
     MultiplyPipe,
     CarsComponent,
     FullTractionPipe,
-    MessagesComponent
+    MessagesComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +103,10 @@ import {
       {
         path: 'samples/pipes',
         component: PipesComponent
+      },
+      {
+        path: 'samples/observables',
+        component: ObservableComponent
       },
       {
         path: '',
