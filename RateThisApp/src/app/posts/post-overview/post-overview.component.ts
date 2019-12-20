@@ -8,7 +8,7 @@ import {IPost} from '..';
     styleUrls: ['./post-overview.component.css']
 })
 export class PostOverviewComponent implements OnInit {
-
+    showImage = false;
     post: IPost;
 
     constructor(private route: ActivatedRoute) {
@@ -17,5 +17,14 @@ export class PostOverviewComponent implements OnInit {
 
     ngOnInit() {
         this.post = this.route.snapshot.data.post;
+    }
+
+    hidePostImage(logString) {
+      console.log(logString);
+      this.showImage = false;
+    }
+
+    showPostImage() {
+      this.showImage = true;
     }
 }

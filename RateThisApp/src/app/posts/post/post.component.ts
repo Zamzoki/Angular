@@ -4,9 +4,11 @@ export interface IPost {
   id: number;
   title: string;
   userName: string;
+  userEmail: string;
   categories: string[];
   description: string;
   info: { time: string, date: Date, location: string };
+  imageSrc?: string;
 }
 
 @Component({

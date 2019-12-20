@@ -63,7 +63,8 @@ export class NewPostComponent {
       const newPost: IPost = {
         id: undefined,
         title: formValues.title,
-        userName: formValues.userName,
+        userName: undefined,
+        userEmail: undefined,
         categories: categoriesArray,
         description: formValues.description,
         info: formValues.info

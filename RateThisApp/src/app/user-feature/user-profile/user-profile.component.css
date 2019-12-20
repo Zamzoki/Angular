@@ -1,0 +1,21 @@
+.user-profile-container {
+  margin: 20px;
+}
+
+.collapsible-post-container {
+  background-color: lightskyblue;
+
+  padding: 10px;
+  margin: 10px;
+
+  cursor: pointer;
+}
+
+.collapsible-post-container:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+.funny-face {
+  color: red;
+}

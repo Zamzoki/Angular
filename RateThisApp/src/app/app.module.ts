@@ -12,6 +12,7 @@ import {
   HeaderComponent,
   NewPostComponent,
   ErrorComponent,
+  PostImageComponent
 } from './posts';
 
 import {
@@ -32,7 +33,8 @@ import {AuthenticationService} from './services/authentication.service';
     HomeComponent,
     HeaderComponent,
     NewPostComponent,
-    ErrorComponent
+    ErrorComponent,
+    PostImageComponent
   ],
   imports: [
     BrowserModule,

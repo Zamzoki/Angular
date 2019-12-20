@@ -12,6 +12,11 @@
             </div>
         </div>
 
+      <div><button type="button" [disabled]="showImage" (click)="showPostImage()">Show image</button></div>
+      <div *ngIf="showImage">
+        <app-post-image [imageSrc]="post.imageSrc" (hideImage)="hidePostImage($event)"></app-post-image>
+      </div>
+
         <h3>Content </h3>
         <div>{{post.description}}</div>
     </div>

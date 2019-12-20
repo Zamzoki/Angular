@@ -20,6 +20,7 @@ export class AuthenticationService {
   _isAuthenticated = false;
 
   constructor() {
+    this.login(this.users[0]);
   }
 
   get isAuthenticated() {

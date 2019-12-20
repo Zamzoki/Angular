@@ -5,3 +5,5 @@ export * from './home/home.component';
 export * from './new-post/new-post.component';
 export * from './post/post.component';
 export * from './post-overview/post-overview.component';
+export * from './post-image/post-image.component';
+export * from './collapsible-post/collapsible-post.component';
