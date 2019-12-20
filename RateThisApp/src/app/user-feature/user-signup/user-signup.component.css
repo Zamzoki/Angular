@@ -1,0 +1,29 @@
+.signup-container {
+  width: 350px;
+  margin: 20px;
+}
+
+.signup-form-section {
+  min-height: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 30px;
+}
+
+.signup-form-em {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.signup-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 40px;
+}
+
+#signup-button {
+  margin-left: 20px;
+}

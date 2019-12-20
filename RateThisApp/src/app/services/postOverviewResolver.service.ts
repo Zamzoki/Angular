@@ -1,4 +1,4 @@
-import { Resolve, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { PostServices } from './post.service';
 import { map } from 'rxjs/operators';
@@ -13,6 +13,6 @@ export class PostOverviewResolver implements Resolve<any> {
     }
 
     resolve(route: ActivatedRouteSnapshot) {
-        return this.postServices.getPost(+route.params['id']).pipe(map(post => post));
+        return this.postServices.getPost(+route.params.id).pipe(map(post => post));
     }
 }

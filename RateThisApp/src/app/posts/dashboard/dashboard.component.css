@@ -2,7 +2,6 @@
     margin: 20px;
 }
 
-.dashboard-post-list {
-    display: flex;
-    justify-content: space-between;
+.row {
+  border: 1px solid red;
 }

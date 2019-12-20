@@ -1,20 +1,57 @@
 <div class="header-container">
-    <button 
-        class="header-button" 
-        [routerLink]="['post']"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{exact: true}"
-    >Dashboard</button>
-    
+  <div class="left-container">
     <button
-        class="header-button" 
-        [routerLink]="['post/new']"
-        routerLinkActive="active"
+      class="header-button"
+      [routerLink]="['post']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"
+    >Dashboard</button>
+
+    <button
+      class="header-button"
+      [routerLink]="['post/new']"
+      routerLinkActive="active"
+      *ngIf="authenticationService.isAuthenticated"
     >Create post</button>
 
     <button
-        class="header-button"
-        [routerLink]="['user/profile']"
-        routerLinkActive="active"
+      class="header-button"
+      [routerLink]="['user/profile']"
+      routerLinkActive="active"
+      *ngIf="authenticationService.isAuthenticated"
     >User profile</button>
+  </div>
+  <div>
+    <button
+      class="header-button"
+      [routerLink]="['user/signup']"
+      routerLinkActive="active"
+      *ngIf="!authenticationService.isAuthenticated"
+    >
+      Sign up
+    </button>
+    <button
+      class="header-button"
+      [routerLink]="['user/login']"
+      routerLinkActive="active"
+      *ngIf="!authenticationService.isAuthenticated"
+    >
+      Login
+    </button>
+    <button
+      class="header-button"
+      [routerLink]="['/post']"
+      *ngIf="authenticationService.isAuthenticated"
+      (click)="handleLogoutButtonClick()"
+    >
+      Logout
+    </button>
+    <button
+      class="header-button"
+      [routerLink]="['user/profile']"
+      *ngIf="authenticationService.isAuthenticated"
+    >
+      Welcome {{authenticationService.currentUser.name}}
+    </button>
+  </div>
 </div>

@@ -1,16 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+
+export interface IPost {
+  id: number;
+  title: string;
+  userName: string;
+  categories: string[];
+  description: string;
+  info: { time: string, date: Date, location: string };
+}
 
 @Component({
-    selector: 'post-component',
+    selector: 'app-post-component',
     templateUrl: './post.component.html',
     styleUrls: ['./post.component.css']
 })
 export class PostComponent {
 
-    @Input() post: any;
+    @Input() post: IPost;
 
-    constructor(private router: Router) {
+    constructor() {
 
     }
 }

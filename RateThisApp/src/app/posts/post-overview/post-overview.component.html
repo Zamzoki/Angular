@@ -1,13 +1,13 @@
 <div class="post-overview-container">
     <h1>{{post.title}}</h1>
     <div>
-        <h3>Posted by {{post.user}}</h3>
+        <h3>Posted by {{post.userName}}</h3>
 
         <div class="post-details">
             Categories: <span *ngFor="let category of post.categories"> {{category}}</span>
             <div *ngIf="post?.info">
                 <div>Time: {{post.info.time}}</div>
-                <div>Date: {{post.info.date}}</div>
+                <div>Date: {{post.info.date | date:"dd-MM-yyyy"}}</div>
                 <div>Location: {{post.info.location}}</div>
             </div>
         </div>
@@ -15,4 +15,5 @@
         <h3>Content </h3>
         <div>{{post.description}}</div>
     </div>
+  <div class="button-container"><button [routerLink]="['/post']">Go back</button></div>
 </div>

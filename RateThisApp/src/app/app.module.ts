@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { appRoutes } from './appRoutes';
 
 import {
@@ -10,8 +11,8 @@ import {
   PostOverviewComponent,
   HeaderComponent,
   NewPostComponent,
-  ErrorComponent
-} from './posts/index';
+  ErrorComponent,
+} from './posts';
 
 import {
   PostServices,
@@ -19,7 +20,9 @@ import {
   RouteDeactivatorService,
   PostListResolver,
   PostOverviewResolver
-} from './services/index';
+} from './services';
+
+import {AuthenticationService} from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -33,14 +36,16 @@ import {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [
     PostServices,
     RouteActivatorService,
     RouteDeactivatorService,
     PostListResolver,
-    PostOverviewResolver
+    PostOverviewResolver,
+    AuthenticationService,
   ],
   bootstrap: [ HomeComponent ]
 })

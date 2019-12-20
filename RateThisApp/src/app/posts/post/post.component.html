@@ -1,6 +1,6 @@
-<div class="post-container" [routerLink]="[post.id]">
+<div class="post-container thumbnail" [routerLink]="[post.id]">
     <h3>{{post.title}}</h3>
-    <div>Posted by: {{post.user}}</div>
+    <div>Posted by: {{post.userName}}</div>
     <div *ngIf="post?.categories">
         Cateogries:
         <span *ngFor="let category of post.categories" [ngClass]="{'funny-post': category === 'funny'}"> {{category}}</span>
@@ -10,9 +10,9 @@
         Info:
         <ul>
             <li>Time: {{post.info.time}}</li>
-            <li>Date: {{post.info.date}}</li>
+            <li>Date: {{post.info.date | date:"dd-MM-yyyy"}}</li>
             <li>Location: {{post.info.location}}</li>
         </ul>
     </div>
-    
+
 </div>
