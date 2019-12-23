@@ -26,34 +26,12 @@ export class UserProfileComponent implements OnInit {
     this.posts = this.postsCache;
   }
 
-  sortByTitle = (post1: IPost, post2: IPost) => {
-    if (post1.title > post2.title) {
-      return 1;
-    } else if (post1.title < post2.title) {
-      return -1;
-    } else {
-      return 0;
-    }
-  }
-
-  sortByFunny = (post1: IPost, post2: IPost) => {
-    if (post1.categories.includes('funny') && post2.categories.includes('funny')) {
-      return(this.sortByTitle(post1, post2));
-    } else if (!post1.categories.includes('funny') && post2.categories.includes('funny')) {
-      return 1;
-    } else if (post1.categories.includes('funny') && !post2.categories.includes('funny')) {
-      return -1;
-    } else {
-      return(this.sortByTitle(post1, post2));
-    }
-  }
-
   handleSortByNameButtonClick() {
     this.sortedByFunny = false;
     this.sortedByTitle = !this.sortedByTitle;
 
     if (this.sortedByTitle) {
-      this.posts = this.sortedPosts.sort(this.sortByTitle);
+      this.posts = this.sortedPosts.sort(this.postService.sortPostsByTitle);
     } else {
       this.posts = this.postsCache;
     }
@@ -64,7 +42,7 @@ export class UserProfileComponent implements OnInit {
     this.sortedByFunny = !this.sortedByFunny;
 
     if (this.sortedByFunny) {
-      this.posts = this.sortedPosts.sort(this.sortByFunny);
+      this.posts = this.sortedPosts.sort(this.postService.sortPostsByFunny);
     } else {
       this.posts = this.postsCache;
     }
