@@ -2,6 +2,22 @@
   <h1>Welcome, {{user.name}}!</h1>
   <div class="user-posts">
     <h3>Your posts: </h3>
+    <div class="sorting-container" *ngIf="posts.length > 0">
+      <label for="sorting-buttons" class="sorting-buttons-label">Sort by:</label>
+      <span id="sorting-buttons">
+        <button
+          class="sorting-button"
+          [ngClass]="{active: sortedByTitle}"
+          (click)="handleSortByNameButtonClick()"
+        >title</button>
+        <button
+          class="sorting-button"
+          [ngClass]="{active: sortedByFunny}"
+          (click)="handleSortByFunnyButtonClick()"
+        >funny</button>
+      </span>
+    </div>
+
     <div *ngFor="let post of posts" class="collapsible-post-container">
       <app-collapsible-post [title]="post.title" >
         <div post-title>
@@ -17,5 +33,9 @@
         </div>
       </app-collapsible-post>
     </div>
+  </div>
+
+  <div *ngIf="posts.length == 0" class="no-posts-container">
+    <h4>You didn't post anything yet.</h4>
   </div>
 </div>

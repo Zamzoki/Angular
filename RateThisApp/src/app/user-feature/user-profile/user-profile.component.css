@@ -19,3 +19,23 @@
 .funny-face {
   color: red;
 }
+
+.sorting-buttons-label {
+  margin-right: 20px;
+}
+
+.sorting-button {
+  border: none;
+  color: black;
+  margin-right: 10px;
+}
+
+.active {
+  border: none;
+  color: white;
+  background-color: gray;
+}
+
+.no-posts-container {
+  color: lightgray;
+}

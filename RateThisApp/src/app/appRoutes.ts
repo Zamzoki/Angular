@@ -43,5 +43,9 @@ export const appRoutes: Routes = [
   {
     path: 'user',
     loadChildren: './user-feature/user.module#UserModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'post/error'
   }
 ];

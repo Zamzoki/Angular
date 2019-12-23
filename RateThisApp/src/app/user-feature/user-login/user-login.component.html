@@ -1,5 +1,9 @@
 <div>
-  <form [formGroup]="loginForm" (ngSubmit)="handleLoginButtonClick()">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="handleLoginButtonClick()"
+    autocomplete="off"
+  >
     <div class="login-form-container">
       <div class="login-form-section">
         <div><label for="email-input-id">Email: </label></div>

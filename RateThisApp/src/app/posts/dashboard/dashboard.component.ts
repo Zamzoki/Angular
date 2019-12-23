@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {PostServices} from '../../services';
+import {IPost} from '..';
 
 @Component({
     selector: 'app-dashboard-component',
@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
     posts: any;
     searchString = '';
 
-    constructor(private route: ActivatedRoute, private postServices: PostServices) {
+    constructor(private route: ActivatedRoute) {
 
     }
 
@@ -19,9 +19,13 @@ export class DashboardComponent implements OnInit {
         this.posts = this.route.snapshot.data.posts;
     }
 
+    searchPosts(searchString: string): IPost[] {
+      return this.route.snapshot.data.posts.filter(post => post.title.toLowerCase().includes(searchString.toLowerCase()));
+    }
+
     handlePostSearch() {
       if (this.searchString) {
-        this.posts = this.postServices.searchPosts(this.searchString);
+        this.posts = this.searchPosts(this.searchString);
       } else {
         this.posts = this.route.snapshot.data.posts;
       }

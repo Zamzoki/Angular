@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, CanDeactivate } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { PostServices } from './post.service';
 
 @Injectable()
@@ -9,13 +9,16 @@ export class RouteActivatorService implements CanActivate {
 
     }
 
-    canActivate(route: ActivatedRouteSnapshot) {
-        const postExists = !!this.postServices.getPost(+route.params['id']);
+    async canActivate(route: ActivatedRouteSnapshot) {
+      const post = await this.postServices.getPost(+route.params.id).toPromise();
+      const postExists = !!post;
 
-        if(!postExists) {
-            this.router.navigate(['post/error']);
-        }
+      console.log('test');
 
-        return postExists;
+      if (!postExists) {
+          await this.router.navigate(['post/error']);
+      }
+
+      return postExists;
     }
 }

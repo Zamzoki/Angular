@@ -17,7 +17,7 @@ export class PostServices {
       }
     }
 
-    getMyPosts() {
+    getUserPosts() {
       return POSTS.filter(post => post.userEmail === this.authenticationService.currentUser.email);
     }
 
@@ -50,10 +50,6 @@ export class PostServices {
       POSTS.push(newPost);
 
       localStorage.setItem(`posts`, JSON.stringify(POSTS));
-    }
-
-    searchPosts(searchString: string): IPost[] {
-      return POSTS.filter(post => post.title.includes(searchString));
     }
 }
 

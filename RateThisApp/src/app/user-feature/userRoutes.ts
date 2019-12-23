@@ -15,5 +15,9 @@ export const userRoutes: Routes = [
   {
     path: 'signup',
     component: UserSignupComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'post/error'
   }
 ];
