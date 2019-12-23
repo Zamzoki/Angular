@@ -8,18 +8,20 @@ export interface IUser {
 
 @Injectable()
 export class AuthenticationService {
-  users: IUser[] = [
-    {
-      name: 'Dave',
-      email: 'dav@yahoo.com',
-      password: '1234'
-    }
-  ];
+  users: IUser[] = [];
   currentUser: IUser;
   // tslint:disable-next-line:variable-name
   _isAuthenticated = false;
 
   constructor() {
+    const usersJson = JSON.parse(localStorage.getItem('users'));
+
+    if (usersJson) {
+      for (const user of usersJson) {
+        this.users.push(user as IUser);
+      }
+    }
+
     this.login(this.users[0]);
   }
 
@@ -32,6 +34,8 @@ export class AuthenticationService {
   }
 
   login(user: IUser): boolean {
+
+
     const loggedUser = this.users.find(usr => usr.email === user.email && usr.password === user.password);
 
     if (!!loggedUser) {
@@ -50,6 +54,6 @@ export class AuthenticationService {
 
   signup(user: IUser) {
     this.users.push(user);
-    console.log(`Signed up ${user.name}`);
+    localStorage.setItem(`users`, JSON.stringify(this.users));
   }
 }

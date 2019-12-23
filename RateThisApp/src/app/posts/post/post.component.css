@@ -13,6 +13,7 @@
 .post-container:hover {
   background-color: darkblue;
   color: white;
+  cursor: pointer;
 }
 
 h3 {

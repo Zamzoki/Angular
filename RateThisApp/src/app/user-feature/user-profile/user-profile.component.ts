@@ -18,6 +18,5 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.posts = this.postService.getMyPosts();
-    console.log(this.posts);
   }
 }

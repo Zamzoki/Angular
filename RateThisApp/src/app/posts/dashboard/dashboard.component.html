@@ -1,5 +1,15 @@
 <div class="dashboard-container">
   <h1>Posts Dashboard</h1>
+  <div class="search-bar-container">
+    <label for="search-bar" class="search-bar-label">Search: </label>
+    <input
+      id="search-bar"
+      type="text"
+      [(ngModel)]="searchString"
+      placeholder="Post title..."
+      (input)="handlePostSearch()"
+    >
+  </div>
   <div class="dashboard-list">
     <div class="row">
       <div *ngFor="let post of posts" class="col-md-5">

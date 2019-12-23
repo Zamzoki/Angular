@@ -5,7 +5,7 @@
       <div>
         <input
           id="title-input-id"
-          [(ngModel)]="newEvent.title"
+          (ngModel)="newEvent.title"
           name="title"
           type="text"
           placeholder="Post title..."
@@ -22,7 +22,7 @@
       <div>
         <input
           id="categories-input-id"
-          [(ngModel)]="newEvent.categories"
+          (ngModel)="newEvent.categories"
           name="categories"
           type="text"
           placeholder="Categories..."
@@ -40,7 +40,7 @@
         <textarea
           id="description-input-id"
           #textAreaElement
-          [(ngModel)]="newEvent.description"
+          (ngModel)="newEvent.description"
           name="description"
           type="text"
           placeholder="Description..."
@@ -60,7 +60,7 @@
         <div>
           <input
             id="time-input-id"
-            [(ngModel)]="newEvent.info.time"
+            (ngModel)="newEvent.info.time"
             name="time"
             type="text"
             placeholder="Time..."
@@ -77,7 +77,7 @@
         <div>
           <input
             id="date-input-id"
-            [(ngModel)]="newEvent.info.date"
+            (ngModel)="newEvent.info.date"
             name="date"
             type="text"
             placeholder="Date, with correct format..."
@@ -94,10 +94,22 @@
         <div>
           <input
             id="location-input-id"
-            [(ngModel)]="newEvent.info.location"
+            (ngModel)="newEvent.info.location"
             name="location"
             type="text"
             placeholder="Location..."/>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div><label for="image-input-id">Image path</label></div>
+        <div>
+          <input
+            id="image-input-id"
+            (ngModel)="newEvent.imageSrc"
+            name="image"
+            type="text"
+            placeholder="Image path..."/>
         </div>
       </div>
     </div>

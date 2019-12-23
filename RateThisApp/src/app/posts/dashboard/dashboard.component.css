@@ -5,3 +5,11 @@
 .row {
   border: 1px solid red;
 }
+
+.search-bar-label {
+  margin-right: 20px;
+}
+
+.search-bar-container {
+  margin: 20px 0;
+}
