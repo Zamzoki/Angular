@@ -9,6 +9,7 @@ import {PostServices} from '../../services';
 })
 export class DashboardComponent implements OnInit {
     posts: any;
+    foundPosts: any;
     searchString = '';
 
     constructor(private route: ActivatedRoute, private postServices: PostServices) {
@@ -21,9 +22,9 @@ export class DashboardComponent implements OnInit {
 
     handlePostSearch() {
       if (this.searchString) {
-        this.posts = this.postServices.searchPosts(this.searchString);
+        this.foundPosts = this.postServices.searchPosts(this.searchString);
       } else {
-        this.posts = this.route.snapshot.data.posts;
+        this.foundPosts = this.route.snapshot.data.posts;
       }
     }
 }

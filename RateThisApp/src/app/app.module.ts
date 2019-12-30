@@ -12,7 +12,8 @@ import {
   HeaderComponent,
   NewPostComponent,
   ErrorComponent,
-  PostImageComponent
+  PostImageComponent,
+  SimpleModalComponent
 } from './posts';
 
 import {
@@ -20,10 +21,13 @@ import {
   RouteActivatorService,
   RouteDeactivatorService,
   PostListResolver,
-  PostOverviewResolver
+  PostOverviewResolver,
+  AuthenticationService,
+  JQ_TOKEN
 } from './services';
+import {ModalTriggerDirective} from './directives/modal-trigger.directive';
 
-import {AuthenticationService} from './services/authentication.service';
+declare let jQuery: object;
 
 @NgModule({
   declarations: [
@@ -34,7 +38,9 @@ import {AuthenticationService} from './services/authentication.service';
     HeaderComponent,
     NewPostComponent,
     ErrorComponent,
-    PostImageComponent
+    PostImageComponent,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -48,6 +54,7 @@ import {AuthenticationService} from './services/authentication.service';
     PostListResolver,
     PostOverviewResolver,
     AuthenticationService,
+    { provide: JQ_TOKEN, useValue: jQuery}
   ],
   bootstrap: [ HomeComponent ]
 })

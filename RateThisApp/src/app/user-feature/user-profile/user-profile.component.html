@@ -18,8 +18,8 @@
       </span>
     </div>
 
-    <div *ngFor="let post of posts" class="collapsible-post-container">
-      <app-collapsible-post [title]="post.title" >
+    <div *ngFor="let post of posts" class="collapsible-post-container post-elem">
+      <app-collapsible-post [title]="post.title">
         <div post-title>
           {{post.title}}
           <span class="funny-face" *ngIf="post.categories.includes('funny')">:)</span>

@@ -7,8 +7,12 @@
       type="text"
       [(ngModel)]="searchString"
       placeholder="Post title..."
-      (input)="handlePostSearch()"
+      autocomplete="off"
     >
+    <button
+      appModalTrigger
+      (click)="handlePostSearch()"
+    >Search</button>
   </div>
   <div class="dashboard-list">
     <div class="row">
@@ -18,3 +22,15 @@
     </div>
   </div>
 </div>
+
+<app-simple-modal title="Posts found">
+  <!--
+  ce am intre tagurile de aici este ce se afiseaza in loc de ng-content in template-ul componentei cu
+  selectorul app-simple-modal
+  -->
+  <div class="list-group">
+    <a class="list-group-item" *ngFor="let post of foundPosts" [routerLink]="['/post', post.id]">{{post.title}}</a>
+  </div>
+</app-simple-modal>
+
+

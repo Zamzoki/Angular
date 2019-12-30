@@ -13,8 +13,6 @@ export class RouteActivatorService implements CanActivate {
       const post = await this.postServices.getPost(+route.params.id).toPromise();
       const postExists = !!post;
 
-      console.log('test');
-
       if (!postExists) {
           await this.router.navigate(['post/error']);
       }

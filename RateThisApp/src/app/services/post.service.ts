@@ -75,7 +75,7 @@ export class PostServices {
   }
 
   searchPosts(searchString: string): IPost[] {
-    return POSTS.filter(post => post.title.toLowerCase().includes(searchString.toLowerCase()));
+    return POSTS.filter(post => post.title.toLowerCase().includes(searchString.trim().toLowerCase()));
   }
 }
 

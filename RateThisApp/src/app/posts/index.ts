@@ -7,3 +7,4 @@ export * from './post/post.component';
 export * from './post-overview/post-overview.component';
 export * from './post-image/post-image.component';
 export * from './collapsible-post/collapsible-post.component';
+export * from './simple-modal/simple-modal.component';
