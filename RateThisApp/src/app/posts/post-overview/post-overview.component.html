@@ -1,0 +1,32 @@
+<div class="post-overview-container">
+    <h1>{{post.title}}</h1>
+    <div>
+        <h3>Posted by {{post.userName}}</h3>
+
+        <div class="post-details">
+            Categories: <span *ngFor="let category of post.categories"> {{category}}</span>
+            <div *ngIf="post?.info">
+                <div>Time: {{post.info.time}}</div>
+                <div>Date: {{post.info.date | date:"dd-MM-yyyy"}}</div>
+                <div>Location: {{post.info.location}}</div>
+            </div>
+        </div>
+
+      <div>
+        <button
+          type="button"
+          [disabled]="showImage"
+          (click)="showPostImage()"
+          *ngIf="post.imageSrc"
+        >
+          Show image</button>
+      </div>
+      <div *ngIf="showImage">
+        <app-post-image [imageSrc]="post.imageSrc" (hideImage)="hidePostImage($event)"></app-post-image>
+      </div>
+
+        <h3>Content </h3>
+        <div>{{post.description}}</div>
+    </div>
+  <div class="button-container"><button [routerLink]="['/post']">Go back</button></div>
+</div>

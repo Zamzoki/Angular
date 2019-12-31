@@ -1,0 +1,44 @@
+.user-profile-container {
+  margin: 20px;
+}
+
+.collapsible-post-container {
+  background-color: lightskyblue;
+  color: black;
+  margin: 10px;
+
+  cursor: pointer;
+}
+
+.collapsible-post-container:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+.funny-face {
+  color: red;
+}
+
+.sorting-buttons-label {
+  margin-right: 20px;
+}
+
+.sorting-button {
+  border: none;
+  color: black;
+  margin-right: 10px;
+}
+
+.active {
+  border: none;
+  color: white;
+  background-color: gray;
+}
+
+.no-posts-container {
+  color: lightgray;
+}
+
+.return-button-container {
+  margin-top: 40px;
+}

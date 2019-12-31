@@ -1,0 +1,81 @@
+<div class="signup-container">
+  <form [formGroup]="signupForm" (ngSubmit)="handleSignupButtonClick()" autocomplete="off">
+    <div>
+      <div class="signup-form-section">
+        <div><label for="name-input-id">Name: </label></div>
+        <div>
+          <input
+            id="name-input-id"
+            type="text"
+            name="name"
+            formControlName="name"
+            placeholder="Your name..."
+          />
+        </div>
+      </div>
+      <div class="signup-form-em">
+        <em *ngIf="name?.errors?.required && name.touched">Required</em>
+        <em *ngIf="name?.errors?.wrongFormat">Use only letters</em>
+      </div>
+    </div>
+
+    <div>
+      <div class="signup-form-section">
+        <div><label for="email-input-id">Email: </label></div>
+        <div>
+          <input
+            id="email-input-id"
+            type="text"
+            name="email"
+            formControlName="email"
+            placeholder="email@example.com"
+          />
+        </div>
+      </div>
+      <div class="signup-form-em">
+        <em *ngIf="email?.errors?.required && email.touched">Required</em>
+        <em *ngIf="email?.errors?.wrongFormat">Format like email@example.com or email@example</em>
+      </div>
+    </div>
+
+    <div>
+      <div class="signup-form-section">
+        <div><label for="password-input-id">Password: </label></div>
+        <div>
+          <input
+            id="password-input-id"
+            type="password"
+            name="password"
+            formControlName="password"
+          />
+        </div>
+      </div>
+      <div class="signup-form-em">
+        <em *ngIf="password?.errors?.required && password.touched">Required</em>
+      </div>
+    </div>
+
+
+    <div>
+      <div class="signup-form-section">
+        <div><label for="confirm-password-input-id">Confirm password: </label></div>
+        <div>
+          <input
+            id="confirm-password-input-id"
+            type="password"
+            name="confirmPassword"
+            formControlName="confirmPassword"
+          />
+        </div>
+      </div>
+      <div class="signup-form-em">
+        <div><em *ngIf="confirmPassword?.errors?.required && confirmPassword.dirty">Required</em></div>
+        <div><em *ngIf="!passwordsMatch(password.value, confirmPassword.value)">Passwords do not match</em></div>
+      </div>
+    </div>
+    <div class="signup-form-buttons">
+      <button routerLink="/post" type="button">Go back</button>
+      <button type="submit" id="signup-button">Sign up</button>
+    </div>
+  </form>
+</div>

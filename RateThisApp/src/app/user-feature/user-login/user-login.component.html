@@ -1,0 +1,41 @@
+<div>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="handleLoginButtonClick()"
+    autocomplete="off"
+  >
+    <div class="login-form-container">
+      <div class="login-form-section">
+        <div><label for="email-input-id">Email: </label></div>
+        <div>
+          <input
+            id="email-input-id"
+            type="text"
+            placeholder="example@mail.com"
+            formControlName="email"
+            required/>
+        </div>
+      </div>
+      <div class="login-form-section">
+        <div><label for="password-input-id">Password: </label></div>
+        <div>
+          <input
+            id="password-input-id"
+            type="password"
+            placeholder="Password..."
+            formControlName="password"
+            required>
+        </div>
+      </div>
+      <em *ngIf="!canLogin">Wrong credentials</em>
+      <div class="login-form-buttons">
+        <div><button routerLink="/post" type="button">Go back</button></div>
+        <div id="login-button">
+          <button
+            type="submit"
+          >Login</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

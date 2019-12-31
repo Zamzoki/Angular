@@ -1,0 +1,123 @@
+<div class="container">
+  <form #newPostForm="ngForm" (ngSubmit)="createNewPost(newPostForm.value)" autocomplete="off">
+    <div class="form-section">
+      <div><label for="title-input-id">Title</label></div>
+      <div>
+        <input
+          id="title-input-id"
+          (ngModel)="newEvent.title"
+          name="title"
+          type="text"
+          placeholder="Post title..."
+          required
+        />
+        <em *ngIf="newPostForm.controls.title?.invalid && newPostForm.controls.title?.touched">
+          Required
+        </em>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div><label for="categories-input-id">Categories</label></div>
+      <div>
+        <input
+          id="categories-input-id"
+          (ngModel)="newEvent.categories"
+          name="categories"
+          type="text"
+          placeholder="Categories..."
+          [pattern]="descriptionRegex"
+        />
+      </div>
+      <em *ngIf="!hasValidCharacters(newPostForm.controls.categories?.value) && newPostForm.controls.categories?.dirty">
+        Use only alphanumeric characters and commas
+      </em>
+    </div>
+
+    <div class="form-section">
+      <div><label for="description-input-id">Description</label></div>
+      <div>
+        <textarea
+          id="description-input-id"
+          #textAreaElement
+          (ngModel)="newEvent.description"
+          name="description"
+          type="text"
+          placeholder="Description..."
+          rows="3"
+          cols="50"
+          maxlength="100"
+        ></textarea>
+        <em *ngIf="newPostForm.controls.description?.dirty">
+          Remaining characters: {{textAreaElement.maxLength - newPostForm.controls.description.value.length}}
+        </em>
+      </div>
+    </div>
+
+    <div ngModelGroup="info">
+      <div class="form-section">
+        <div><label for="time-input-id">Time</label></div>
+        <div>
+          <input
+            id="time-input-id"
+            (ngModel)="newEvent.info.time"
+            name="time"
+            type="text"
+            placeholder="Time..."
+            [pattern]="timeRegex"
+          >
+          <em *ngIf="newPostForm.controls.info?.get('time').dirty && !hasTimeFormat(newPostForm.controls.time?.value)">
+            Must be of format 14:50 or 14:50 PM
+          </em>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div><label for="date-input-id">Date</label></div>
+        <div>
+          <input
+            id="date-input-id"
+            (ngModel)="newEvent.info.date"
+            name="date"
+            type="text"
+            placeholder="Date, with correct format..."
+            [pattern]="dateRegex"
+          >
+          <em *ngIf="newPostForm.controls.info?.get('date').dirty && !hasDateFormat(newPostForm.controls.date?.value)">
+            Must be of format dd-mm-yyyy
+          </em>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div><label for="location-input-id">Location</label></div>
+        <div>
+          <input
+            id="location-input-id"
+            (ngModel)="newEvent.info.location"
+            name="location"
+            type="text"
+            placeholder="Location..."/>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div><label for="image-input-id">Image path</label></div>
+        <div>
+          <input
+            id="image-input-id"
+            (ngModel)="newEvent.imageSrc"
+            name="image"
+            type="text"
+            placeholder="Image path..."/>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div>
+        <button type="submit" [disabled]="!newPostForm.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+.post-container {
+  min-width: 400px;
+  min-height: 300px;
+
+  background-color: lightskyblue;
+  color: black;
+
+  padding: 10px 30px;
+  margin-bottom: 50px;
+  margin-right: 20px;
+}
+
+.post-container:hover {
+  background-color: darkblue;
+  color: white;
+
+  cursor: pointer;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.funny-post {
+  color: red;
+}
