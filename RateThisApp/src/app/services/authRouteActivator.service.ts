@@ -13,8 +13,6 @@ export class AuthRouteActivator implements  CanActivate {
   canActivate() {
     const isLoggedIn = !!this.authenticationService.currentUser;
 
-    console.log(isLoggedIn);
-
     if (!isLoggedIn) {
       this.router.navigate(['user/login']);
     }
