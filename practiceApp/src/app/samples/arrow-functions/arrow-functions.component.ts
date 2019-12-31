@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
-interface loggerType {
-  (message: string): void;
-}
+type LoggerType = (message: string) => void;
 
-const myLogger: loggerType = message => console.log(message);
+const myLogger: LoggerType = message => console.log(message);
 
 function Car() {
-  var self = this;
+  const self = this;
   this.seats = 4 as number;
 
+  // tslint:disable-next-line:only-arrow-functions
   this.timeout = function() {
+    // tslint:disable-next-line:only-arrow-functions
     setTimeout(function() {
       console.log(self.seats++);
     }, 1000);
-  }
+  };
 }
 
 class CarWithArrow {
-  private _seats: number = 0;
+  // tslint:disable-next-line:variable-name
+  private _seats = 0;
 
   constructor() {
     this._seats = 6;
@@ -33,14 +34,14 @@ class CarWithArrow {
   }
 
   // seen as a property of the class; still needs to be called with '()' to execute
-  timeout : () => void = () => {
+  timeout: () => void = () => {
     setTimeout(() => {
       console.log(this._seats++);
     }, 1000);
   }
 
   // seen as a method/ function
-  timeout2() : void {
+  timeout2(): void {
     setTimeout(() => {
       console.log(this._seats++);
     }, 1000);
@@ -53,7 +54,6 @@ class CarWithArrow {
   styleUrls: ['./arrow-functions.component.css']
 })
 export class ArrowFunctionsComponent implements OnInit {
-  
   constructor() {
 
   }
@@ -61,10 +61,10 @@ export class ArrowFunctionsComponent implements OnInit {
   ngOnInit() {
     myLogger('Testing out arrow functions.');
 
-    var c = new Car();
+    const c = new Car();
     c.timeout();
 
-    var cArrow = new CarWithArrow();
+    const cArrow = new CarWithArrow();
     console.log(`Expected 6 from constructor: ${cArrow.seats}`);
     cArrow.seats = 3;
     console.log(`Expected 3 from setter: ${cArrow.seats}`);
