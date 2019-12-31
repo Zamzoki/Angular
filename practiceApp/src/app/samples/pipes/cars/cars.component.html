@@ -1,0 +1,18 @@
+<h3>Cars</h3>
+
+<div>
+  <div><label>Car engine</label><input #box type="text" (keyup.enter)="addCar(box.value); box.value=''"></div>
+  <div><label>Full traction</label><input type="checkbox" [checked]="fullTraction"></div>
+  <div><input type="button" (click)="reset()" value="Reset"></div>
+</div>
+<div>
+  <h4>All cars</h4>
+  <div *ngFor="let car of this.cars">
+    {{car.engine}}
+  </div>
+
+  <h4>Full traction cars</h4>
+  <div *ngFor="let car of (this.cars | fullTraction)">
+    {{car.engine}}
+  </div>
+</div>
