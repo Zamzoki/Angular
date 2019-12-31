@@ -1,6 +1,5 @@
-<div (click)="toggleContent()">
-  <h5>
-    <ng-content select="[post-title]"></ng-content>
+<div (click)="toggleContent()" class="collapsible-post">
+  <h5><ng-content select="[post-title]"></ng-content>
   </h5>
   <ng-content select="[post-body]" *ngIf="showContent"></ng-content>
 </div>

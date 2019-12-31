@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PostServices} from '../../services';
 
 @Component({
@@ -12,7 +12,9 @@ export class DashboardComponent implements OnInit {
     foundPosts: any;
     searchString = '';
 
-    constructor(private route: ActivatedRoute, private postServices: PostServices) {
+    constructor(private route: ActivatedRoute,
+                private postServices: PostServices,
+                private router: Router) {
 
     }
 
@@ -26,5 +28,9 @@ export class DashboardComponent implements OnInit {
       } else {
         this.foundPosts = this.route.snapshot.data.posts;
       }
+    }
+
+    navigateToPost(postId) {
+      this.router.navigate(['post', postId]);
     }
 }

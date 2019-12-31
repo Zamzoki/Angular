@@ -5,7 +5,8 @@ import { PostServices } from './post.service';
 @Injectable()
 export class RouteActivatorService implements CanActivate {
 
-    constructor(private postServices: PostServices, private router: Router) {
+    constructor(private postServices: PostServices,
+                private router: Router) {
 
     }
 

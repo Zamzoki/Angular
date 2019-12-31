@@ -11,13 +11,15 @@ import {
   PostListResolver,
   RouteActivatorService,
   RouteDeactivatorService,
-  PostOverviewResolver
+  PostOverviewResolver,
+  AuthRouteActivator
 } from './services';
 
 export const appRoutes: Routes = [
   {
     path: 'post/new',
     component: NewPostComponent,
+    canActivate: [ AuthRouteActivator ],
     canDeactivate: [ RouteDeactivatorService ]
   },
   {

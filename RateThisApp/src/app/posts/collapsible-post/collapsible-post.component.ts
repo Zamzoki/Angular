@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-collapsible-post',
@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./collapsible-post.component.css']
 })
 export class CollapsiblePostComponent {
-  private showContent = false;
+  @Input() showContent = false;
   constructor() {
   }
 

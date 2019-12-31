@@ -22,7 +22,11 @@ export class AuthenticationService {
       }
     }
 
-    this.login(this.users[0]);
+    const storedCurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (storedCurrentUser) {
+      this.login(storedCurrentUser);
+    }
   }
 
   get isAuthenticated() {
@@ -34,22 +38,21 @@ export class AuthenticationService {
   }
 
   login(user: IUser): boolean {
-
-
     const loggedUser = this.users.find(usr => usr.email === user.email && usr.password === user.password);
 
     if (!!loggedUser) {
       this.isAuthenticated = true;
       this.currentUser = loggedUser;
+      localStorage.setItem(`currentUser`, JSON.stringify(this.currentUser));
       return true;
     }
-
     return false;
   }
 
   logout() {
     this.isAuthenticated = false;
     this.currentUser = null;
+    localStorage.setItem('currentUser', null);
   }
 
   signup(user: IUser) {

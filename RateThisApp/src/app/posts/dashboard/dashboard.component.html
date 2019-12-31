@@ -1,19 +1,23 @@
 <div class="dashboard-container">
   <h1>Posts Dashboard</h1>
-  <div class="search-bar-container">
-    <label for="search-bar" class="search-bar-label">Search: </label>
-    <input
-      id="search-bar"
-      type="text"
-      [(ngModel)]="searchString"
-      placeholder="Post title..."
-      autocomplete="off"
-    >
-    <button
-      appModalTrigger="searchResults"
-      (click)="handlePostSearch()"
-    >Search</button>
-  </div>
+  <form (ngSubmit)="handlePostSearch()">
+    <div class="search-bar-container">
+      <label for="search-bar" class="search-bar-label">Search: </label>
+      <input
+        id="search-bar"
+        type="text"
+        [(ngModel)]="searchString"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="Post title..."
+        autocomplete="off"
+      >
+      <button
+        appModalTrigger="searchResults"
+        data-backdrop="true"
+      >Search</button>
+    </div>
+  </form>
+
   <div class="dashboard-list">
     <div class="row">
       <div *ngFor="let post of posts" class="col-md-5">
@@ -24,12 +28,16 @@
 </div>
 
 <app-simple-modal elementId="searchResults" title="Posts found">
-  <!--
-  ce am intre tagurile de aici este ce se afiseaza in loc de ng-content in template-ul componentei cu
-  selectorul app-simple-modal
-  -->
   <div class="list-group" *ngIf="foundPosts">
-    <a class="list-group-item modal-item" *ngFor="let post of foundPosts" [routerLink]="['/post', post.id]">{{post.title}}</a>
+    <div
+      *ngFor="let post of foundPosts"
+      class='list-group-item modal-item'
+      appCloseModal="searchResults"
+      (click)="navigateToPost(post.id)"
+    >
+      <span>{{post.title}}</span>
+    </div>
+
   </div>
   <div *ngIf="foundPosts===undefined || foundPosts?.length === 0">
     <h3>No results found.</h3>

@@ -26,6 +26,8 @@ import {
   JQ_TOKEN
 } from './services';
 import {ModalTriggerDirective} from './directives/modal-trigger.directive';
+import {CloseModalDirective} from './directives/close-modal.directive';
+import {AuthRouteActivator} from './services';
 
 declare let jQuery: object;
 
@@ -40,7 +42,8 @@ declare let jQuery: object;
     ErrorComponent,
     PostImageComponent,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    CloseModalDirective
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ declare let jQuery: object;
     PostListResolver,
     PostOverviewResolver,
     AuthenticationService,
-    { provide: JQ_TOKEN, useValue: jQuery}
+    { provide: JQ_TOKEN, useValue: jQuery},
+    AuthRouteActivator
   ],
   bootstrap: [ HomeComponent ]
 })

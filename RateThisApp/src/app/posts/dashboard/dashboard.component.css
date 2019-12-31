@@ -2,10 +2,6 @@
     margin: 20px;
 }
 
-.row {
-  border: 1px solid red;
-}
-
 .search-bar-label {
   margin-right: 20px;
 }
@@ -19,7 +15,17 @@
 }
 
 .modal-item {
+  background-color: lightskyblue;
+  color: black;
+
   margin: 5px;
+}
+
+.modal-item:hover {
+  background-color: darkblue;
+  color: white;
+
+  cursor: pointer;
 }
 
 .item-container {

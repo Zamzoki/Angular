@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService, IUser} from '../../services/authentication.service';
+import {AuthenticationService, IUser} from '../../services';
 import {PostServices} from '../../services';
 import {IPost} from '../../posts';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-user-profile',
@@ -16,7 +17,9 @@ export class UserProfileComponent implements OnInit {
   sortedByTitle = false;
   sortedByFunny = false;
 
-  constructor(private authenticationService: AuthenticationService, private postService: PostServices) {
+  constructor(private authenticationService: AuthenticationService,
+              private postService: PostServices,
+              private router: Router) {
 
   }
 
@@ -46,5 +49,9 @@ export class UserProfileComponent implements OnInit {
     } else {
       this.posts = this.postsCache;
     }
+  }
+
+  navigateToDasboard() {
+    this.router.navigate(['post']);
   }
 }
