@@ -17,3 +17,11 @@
 #search-bar {
   margin-right: 20px;
 }
+
+.modal-item {
+  margin: 5px;
+}
+
+.item-container {
+  cursor: pointer;
+}
