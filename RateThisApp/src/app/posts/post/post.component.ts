@@ -9,6 +9,7 @@ export interface IPost {
   description: string;
   info: { time: string, date: Date, location: string };
   imageSrc?: string;
+  voters: string[];
 }
 
 @Component({
@@ -17,7 +18,6 @@ export interface IPost {
     styleUrls: ['./post.component.css']
 })
 export class PostComponent {
-
     @Input() post: IPost;
 
     constructor() {

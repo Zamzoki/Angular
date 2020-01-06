@@ -6,3 +6,4 @@ export * from './postOverviewResolver.service';
 export * from './authentication.service';
 export * from './jQuery.service';
 export * from './authRouteActivator.service';
+export * from './vote.service';

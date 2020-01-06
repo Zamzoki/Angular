@@ -11,7 +11,7 @@ export class AuthenticationService {
   users: IUser[] = [];
   currentUser: IUser;
   // tslint:disable-next-line:variable-name
-  _isAuthenticated = false;
+  private _isAuthenticated = false;
 
   constructor() {
     const usersJson = JSON.parse(localStorage.getItem('users'));

@@ -23,7 +23,8 @@ import {
   PostListResolver,
   PostOverviewResolver,
   AuthenticationService,
-  JQ_TOKEN
+  JQ_TOKEN,
+  VoteService
 } from './services';
 import {ModalTriggerDirective} from './directives/modal-trigger.directive';
 import {CloseModalDirective} from './directives/close-modal.directive';
@@ -58,7 +59,8 @@ declare let jQuery: object;
     PostOverviewResolver,
     AuthenticationService,
     { provide: JQ_TOKEN, useValue: jQuery},
-    AuthRouteActivator
+    AuthRouteActivator,
+    VoteService
   ],
   bootstrap: [ HomeComponent ]
 })

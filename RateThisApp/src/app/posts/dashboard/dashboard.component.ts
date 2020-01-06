@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PostServices} from '../../services';
+import {AuthenticationService, PostServices} from '../../services';
+import {VoteService} from '../../services';
+import {IPost} from '..';
 
 @Component({
     selector: 'app-dashboard-component',
@@ -11,10 +13,13 @@ export class DashboardComponent implements OnInit {
     posts: any;
     foundPosts: any;
     searchString = '';
+    iconColor: string;
 
     constructor(private route: ActivatedRoute,
                 private postServices: PostServices,
-                private router: Router) {
+                private router: Router,
+                private authenticationService: AuthenticationService,
+                private voteService: VoteService) {
 
     }
 
@@ -32,5 +37,18 @@ export class DashboardComponent implements OnInit {
 
     navigateToPost(postId) {
       this.router.navigate(['post', postId]);
+    }
+
+    handleVote(post: IPost) {
+      this.voteService.handleVote(post);
+    }
+
+    isVotedByCurrentUser(post: IPost) {
+      if (post.voters.includes(this.authenticationService.currentUser.email)) {
+        this.iconColor = 'red';
+        return true;
+      }
+      this.iconColor = 'black';
+      return false;
     }
 }

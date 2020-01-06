@@ -3,7 +3,7 @@ import { IPost } from '../posts';
 import { Subject } from 'rxjs';
 import {AuthenticationService} from './authentication.service';
 
-const POSTS: IPost[] = [];
+let POSTS: IPost[] = [];
 
 @Injectable()
 export class PostServices {
@@ -15,6 +15,8 @@ export class PostServices {
         POSTS.push(post as IPost);
       }
     }
+
+    POSTS = POSTS.sort(post => post.id);
   }
 
   getUserPosts() {
@@ -47,7 +49,17 @@ export class PostServices {
     newPost.id = POSTS.length + 1;
     newPost.userName = this.authenticationService.currentUser.name;
     newPost.userEmail = this.authenticationService.currentUser.email;
+    newPost.voters = [];
     POSTS.push(newPost);
+
+    localStorage.setItem(`posts`, JSON.stringify(POSTS));
+  }
+
+  updatePost(updatedPost: IPost) {
+    POSTS = POSTS.filter(post => post.id !== updatedPost.id);
+
+    const index = updatedPost.id - 1;
+    POSTS.splice(index, 0, updatedPost);
 
     localStorage.setItem(`posts`, JSON.stringify(POSTS));
   }

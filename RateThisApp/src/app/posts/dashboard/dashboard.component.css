@@ -31,3 +31,35 @@
 .item-container {
   cursor: pointer;
 }
+
+.vote-box {
+  width: 150px;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.like-button {
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  border: none;
+  padding: 7px 15px 7px 10px;
+}
+
+.inactive-like-button {
+  background-color: white;
+  color: black;
+}
+
+.active-like-button {
+  background-color: black;
+  color: white;
+}
+
+.glyphicon-heart {
+  margin-right: 5px;
+  color: red;
+}
