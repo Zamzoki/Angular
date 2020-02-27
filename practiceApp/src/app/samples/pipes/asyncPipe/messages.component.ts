@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Observable, interval } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
@@ -6,8 +6,9 @@ import { map, take } from 'rxjs/operators';
   selector: 'app-messages',
   templateUrl: './messages.component.html'
 })
-export class MessagesComponent {
+export class MessagesComponent implements OnInit {
   message$: Observable<string>;
+  Nan: number;
 
   private messages = [
     'Hey there!',
@@ -16,6 +17,9 @@ export class MessagesComponent {
   ];
 
   constructor() {
+  }
+
+  ngOnInit() {
     this.resend();
   }
 
